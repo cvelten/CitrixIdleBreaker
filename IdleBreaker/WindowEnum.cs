@@ -1,12 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 
 namespace IdleBreaker
 {
-	internal class WindowEnum
+	internal class Interop
 	{
+		[DllImport("User32.Dll")]
+		public static extern IntPtr PostMessage(IntPtr hWnd, IntPtr msg, IntPtr wParam, IntPtr lParam);
+
+		[DllImport("user32.dll")]
+		public static extern bool GetCursorPos(out Point p);
+
+		[DllImport("user32.dll")]
+		public static extern bool SetActiveWindow(IntPtr hWnd);
+
+		[DllImport("user32.dll")]
+		public static extern bool SetForegroundWindow(IntPtr hWnd);
+
 		[DllImport("user32.dll", CharSet = CharSet.Unicode)]
 		private static extern int GetWindowText(IntPtr hWnd, StringBuilder strText, int maxCount);
 
@@ -27,7 +40,6 @@ namespace IdleBreaker
 			var builder = new StringBuilder(size + 1);
 			GetWindowText(hWnd, builder, builder.Capacity);
 			return builder.ToString();
-
 		}
 
 		/// <summary> Find all windows that match the given filter </summary>

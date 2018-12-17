@@ -20,7 +20,7 @@ namespace IdleBreaker
 		{
 			InitializeComponent();
 
-			GetCursorPos(out _point);
+			Interop.GetCursorPos(out _point);
 		}
 
 		private void buttonExit_Click(object sender, EventArgs e)
@@ -45,42 +45,22 @@ namespace IdleBreaker
 
 		private void timer_Tick(object sender, EventArgs e)
 		{
-			if (!GetCursorPos(out var p)) return;
+			if (!Interop.GetCursorPos(out var p)) return;
 			if (p != _point)
 			{
 				_point = p;
 				//return;
 			}
 
-			var windows = WindowEnum.FindWindowsWithText("idle timer expired");
+			var windows = Interop.FindWindowsWithText("idle timer expired");
 			foreach (var wdw in windows)
 			{
 				if (wdw == IntPtr.Zero) continue;
-				SetForegroundWindow(wdw);
-				SetActiveWindow(wdw);
+				Interop.SetForegroundWindow(wdw);
+				Interop.SetActiveWindow(wdw);
 				richTextBox1.AppendText(DateTime.Now.ToLongTimeString() + "\n");
-				PostMessage(wdw, new IntPtr(WM_KEYDOWN), new IntPtr(VK_RETURN), new IntPtr(1));
-				//SendMessage(wdw, BM_CLICK, IntPtr.Zero, IntPtr.Zero);
-				//SendKeys.Send("{ENTER}");
+				Interop.PostMessage(wdw, new IntPtr(WM_KEYDOWN), new IntPtr(VK_RETURN), new IntPtr(1));
 			}
 		}
-
-		[DllImport("user32.dll")]
-		public static extern int SendMessage(IntPtr hWnd, IntPtr uMsg, IntPtr wParam, IntPtr lParam);
-
-		[DllImport("User32.Dll")]
-		public static extern IntPtr PostMessage(IntPtr hWnd, IntPtr msg, IntPtr wParam, IntPtr lParam);
-
-		[DllImport("user32.dll")]
-		public static extern bool GetCursorPos(out Point p);
-
-		[DllImport("user32.dll")]
-		public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
-		[DllImport("user32.dll")]
-		public static extern bool SetActiveWindow(IntPtr hWnd);
-
-		[DllImport("user32.dll")]
-		public static extern bool SetForegroundWindow(IntPtr hWnd);
 	}
 }
