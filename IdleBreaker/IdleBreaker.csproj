@@ -44,7 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WindowEnum.cs" />
+    <Compile Include="User32_SendInput.cs" />
+    <Compile Include="User32_Windows.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

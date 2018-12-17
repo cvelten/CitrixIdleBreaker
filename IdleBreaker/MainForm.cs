@@ -20,7 +20,7 @@ namespace IdleBreaker
 		{
 			InitializeComponent();
 
-			Interop.GetCursorPos(out _point);
+			User32_Windows.GetCursorPos(out _point);
 		}
 
 		private void buttonExit_Click(object sender, EventArgs e)
@@ -45,21 +45,31 @@ namespace IdleBreaker
 
 		private void timer_Tick(object sender, EventArgs e)
 		{
-			if (!Interop.GetCursorPos(out var p)) return;
+			if (!User32_Windows.GetCursorPos(out var p)) return;
 			if (p != _point)
 			{
 				_point = p;
 				//return;
 			}
 
-			var windows = Interop.FindWindowsWithText("idle timer expired");
+			var windows = User32_Windows.FindWindowsWithText("idle timer expired");
 			foreach (var wdw in windows)
 			{
 				if (wdw == IntPtr.Zero) continue;
-				Interop.SetForegroundWindow(wdw);
-				Interop.SetActiveWindow(wdw);
+				User32_Windows.SetForegroundWindow(wdw);
+				User32_Windows.SetActiveWindow(wdw);
 				richTextBox1.AppendText(DateTime.Now.ToLongTimeString() + "\n");
-				Interop.PostMessage(wdw, new IntPtr(WM_KEYDOWN), new IntPtr(VK_RETURN), new IntPtr(1));
+				//Interop.PostMessage(wdw, new IntPtr(WM_KEYDOWN), new IntPtr(VK_RETURN), new IntPtr(1));
+
+				var inputs = new User32_SendInput.INPUT[1];
+				var input = new User32_SendInput.INPUT {type = 1};
+
+				// Keyboard Input
+				input.U.ki.wScan = User32_SendInput.ScanCodeShort.RETURN;
+				input.U.ki.dwFlags = User32_SendInput.KEYEVENTF.SCANCODE;
+				inputs[0] = input;
+				User32_SendInput.SendInput(1, inputs, User32_SendInput.INPUT.Size);
+
 			}
 		}
 	}

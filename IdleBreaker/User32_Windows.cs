@@ -6,9 +6,9 @@ using System.Text;
 
 namespace IdleBreaker
 {
-	internal class Interop
+	internal class User32_Windows
 	{
-		[DllImport("User32.Dll")]
+		[DllImport("user32.dll")]
 		public static extern IntPtr PostMessage(IntPtr hWnd, IntPtr msg, IntPtr wParam, IntPtr lParam);
 
 		[DllImport("user32.dll")]
