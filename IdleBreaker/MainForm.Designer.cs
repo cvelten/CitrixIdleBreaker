@@ -45,7 +45,7 @@
 			this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
 			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
 			this.notifyIcon.Visible = true;
-			this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+			this.notifyIcon.DoubleClick += new System.EventHandler(this.EventShow);
 			// 
 			// contextMenuStrip
 			// 
@@ -59,7 +59,7 @@
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			this.toolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
 			this.toolStripMenuItem1.Text = "Show";
-			this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+			this.toolStripMenuItem1.Click += new System.EventHandler(this.EventShow);
 			// 
 			// buttonMinimize
 			// 
@@ -69,7 +69,7 @@
 			this.buttonMinimize.TabIndex = 0;
 			this.buttonMinimize.Text = "Minimize";
 			this.buttonMinimize.UseVisualStyleBackColor = true;
-			this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
+			this.buttonMinimize.Click += new System.EventHandler(this.EventMinimize);
 			// 
 			// buttonExit
 			// 
@@ -79,13 +79,13 @@
 			this.buttonExit.TabIndex = 1;
 			this.buttonExit.Text = "Exit";
 			this.buttonExit.UseVisualStyleBackColor = true;
-			this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+			this.buttonExit.Click += new System.EventHandler(this.EventExit);
 			// 
 			// timer
 			// 
 			this.timer.Enabled = true;
-			this.timer.Interval = 1000;
-			this.timer.Tick += new System.EventHandler(this.timer_Tick);
+			this.timer.Interval = 30000;
+			this.timer.Tick += new System.EventHandler(this.Timer_Tick);
 			// 
 			// richTextBox1
 			// 
