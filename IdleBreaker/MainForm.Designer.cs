@@ -36,7 +36,7 @@
 			this.buttonMinimize = new System.Windows.Forms.Button();
 			this.buttonExit = new System.Windows.Forms.Button();
 			this.timer = new System.Windows.Forms.Timer(this.components);
-			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+			this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
 			this.checkBoxIB = new System.Windows.Forms.CheckBox();
 			this.checkBoxSS = new System.Windows.Forms.CheckBox();
 			this.contextMenuStrip.SuspendLayout();
@@ -90,17 +90,17 @@
 			this.timer.Interval = 30000;
 			this.timer.Tick += new System.EventHandler(this.Timer_Tick);
 			// 
-			// richTextBox1
+			// richTextBoxLog
 			// 
-			this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.richTextBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.richTextBox1.Location = new System.Drawing.Point(12, 42);
-			this.richTextBox1.Name = "richTextBox1";
-			this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-			this.richTextBox1.Size = new System.Drawing.Size(260, 275);
-			this.richTextBox1.TabIndex = 2;
-			this.richTextBox1.Text = "";
+			this.richTextBoxLog.Location = new System.Drawing.Point(12, 42);
+			this.richTextBoxLog.Name = "richTextBoxLog";
+			this.richTextBoxLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+			this.richTextBoxLog.Size = new System.Drawing.Size(260, 275);
+			this.richTextBoxLog.TabIndex = 2;
+			this.richTextBoxLog.Text = "";
 			// 
 			// checkBoxIB
 			// 
@@ -135,7 +135,7 @@
 			this.ClientSize = new System.Drawing.Size(284, 352);
 			this.Controls.Add(this.checkBoxSS);
 			this.Controls.Add(this.checkBoxIB);
-			this.Controls.Add(this.richTextBox1);
+			this.Controls.Add(this.richTextBoxLog);
 			this.Controls.Add(this.buttonExit);
 			this.Controls.Add(this.buttonMinimize);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -160,7 +160,7 @@
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 		private System.Windows.Forms.Timer timer;
-		private System.Windows.Forms.RichTextBox richTextBox1;
+		private System.Windows.Forms.RichTextBox richTextBoxLog;
 		private System.Windows.Forms.CheckBox checkBoxIB;
 		private System.Windows.Forms.CheckBox checkBoxSS;
 	}

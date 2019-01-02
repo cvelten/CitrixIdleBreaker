@@ -35,7 +35,7 @@ namespace IdleBreaker
 		private void Timer_Tick(object sender, EventArgs e)
 		{
 			//
-			// Find and "ok-away" the Citrix idle timeout windows
+			// Find and "ok-away" the Citrix idle timeout windows - if activated
 
 			if (checkBoxSS.Checked)
 			{
@@ -43,7 +43,7 @@ namespace IdleBreaker
 				foreach (var wdw in windows)
 				{
 					if (wdw == IntPtr.Zero) continue;
-					richTextBox1.AppendText(DateTime.Now.ToLongTimeString() + "\n");
+					richTextBoxLog.AppendText($"{DateTime.Now.ToLongTimeString()} - IdleBreaker\n");
 
 					User32_Windows.SetForegroundWindow(wdw);
 					User32_Windows.SetActiveWindow(wdw);
@@ -59,6 +59,7 @@ namespace IdleBreaker
 
 			//
 			// Move the mouse to prevent the screensaver from activating - if activated
+
 			if (checkBoxIB.Checked)
 			{
 				var newPoint = User32_Cursor.GetCursorPosition();
@@ -68,8 +69,8 @@ namespace IdleBreaker
 					MoveCursorRandomly();
 					MoveCursorRandomly();
 				}
-				else
-					_point = newPoint;
+
+				_point = newPoint;
 			}
 		}
 
