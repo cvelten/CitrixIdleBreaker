@@ -5,7 +5,7 @@ namespace IdleBreaker
 {
 	public partial class MainForm : Form
 	{
-		private Random _random;
+		private readonly Random _random;
 		private System.Drawing.Point _point;
 
 		public MainForm()
@@ -62,6 +62,8 @@ namespace IdleBreaker
 
 			if (checkBoxIB.Checked)
 			{
+				richTextBoxLog.AppendText($"{DateTime.Now.ToLongTimeString()} - ScreenSaverBreaker\n");
+
 				var newPoint = User32_Cursor.GetCursorPosition();
 
 				if (newPoint == _point)
