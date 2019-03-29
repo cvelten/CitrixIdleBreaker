@@ -36,7 +36,6 @@ namespace IdleBreaker
 		{
 			//
 			// Find and "ok-away" the Citrix idle timeout windows - if activated
-
 			if (checkBoxSS.Checked)
 			{
 				var windows = User32_Windows.FindWindowsWithText("idle timer expired");
@@ -59,10 +58,9 @@ namespace IdleBreaker
 
 			//
 			// Move the mouse to prevent the screensaver from activating - if activated
-
 			if (checkBoxIB.Checked)
 			{
-				richTextBoxLog.AppendText($"{DateTime.Now.ToLongTimeString()} - ScreenSaverBreaker\n");
+				//richTextBoxLog.AppendText($"{DateTime.Now.ToLongTimeString()} - ScreenSaverBreaker\n");
 
 				var newPoint = User32_Cursor.GetCursorPosition();
 
