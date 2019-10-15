@@ -40,9 +40,9 @@ namespace IdleBreaker
 			{
 				var windows = User32_Windows.FindWindowsWithText("idle timer expired");
 				foreach (var wdw in windows)
-				{
-					if (wdw == IntPtr.Zero) continue;
-					richTextBoxLog.AppendText($"{DateTime.Now.ToLongTimeString()} - IdleBreaker\n");
+                {
+                    if (wdw == IntPtr.Zero) continue;
+                    richTextBoxLog.AppendText($"{DateTime.Now.ToLongTimeString()} - IdleBreaker\n");
 
 					User32_Windows.SetForegroundWindow(wdw);
 					User32_Windows.SetActiveWindow(wdw);
