@@ -84,5 +84,5 @@ namespace IdleBreaker
 			inputs[0] = input;
 			User32_SendInput.SendInput(1, inputs, User32_SendInput.INPUT.Size);
 		}
-	}
+    }
 }
