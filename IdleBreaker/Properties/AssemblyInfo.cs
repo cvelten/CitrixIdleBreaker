@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("IdleBreaker")]
 [assembly: AssemblyDescription("Tool scanning for Citrix time out pop-ups and moving the mouse curser to break the screensaver timer.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Montefiore Medical Center - Radiation Oncology Physics Group")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("IdleBreaker")]
-[assembly: AssemblyCopyright("Copyright ©  2018 (cvelten@montefiore.org)")]
+[assembly: AssemblyCopyright("Copyright ©  2020 (cv2415@columbia.edu)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.0.0")]
-[assembly: AssemblyFileVersion("0.2.0.0")]
+[assembly: AssemblyVersion("1.0.0.3")]
+[assembly: AssemblyFileVersion("1.0.0.3")]
